@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aquí si se come Rico</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <body>
+        <!-- Header -->
+        <header class="p-3 bg-dark text-white">
+            <div class="container">
+              <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                  <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+                </a>
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                  <li><a href="" class="nav-link px-2 text-white">Inventario</a></li>
+                  <li><a href="" class="nav-link px-2 text-white">Ventas</a></li>
+                </ul>
+                <div class="text-end">
+                  <button type="button" class="btn btn-outline-light me-2">Login</button>
+                  <button type="button" class="btn btn-warning">Registrarse</button>
+                </div>
+              </div>
+            </div>
+          </header>
+          <div class="container">
+            <div class="row g-5">
+              <h4 class="mb-3">Inventario</h4>
+             
+              <div class="col">             
+                <form id="myClient">
+                <!-- <form class="needs-validation" id="myForm" onsubmit="myFunction()"> -->
+                  <div class="row g-3">
+         
+                    <div class="col-sm-4">
+                      <input type="text" class="form-control" id="nameProduct" placeholder="Nombre Producto" required="">
+                    </div>
+                    <div class="col-sm-4">
+                      <input type="text" class="form-control" id="codeProduct" placeholder="Codigo Producto" required="">
+                    </div>
+                      
+                    <div class="col-sm-4">
+                      <input type="text" class="form-control" id="descriptionProduct" placeholder="Descripcion" value="" required="">
+                    </div>
+                    <div class="col-sm-4">
+                      <input type="text" class="form-control" id="amountProduct" placeholder="Cantidad" value="" required="">
+                    </div>
+                  </div>
+                  <hr class="my-4">
+                  <!-- <button class="w-100 btn btn-primary btn-lg" type="submit">Agregar Producto</button> -->
+                  <button class="w-100 btn btn-primary btn-lg" onClick="addProduct()">Agregar Producto</button>
+                </form>
+              </div>
+            </div>
+            <div class="row g-5">
+              <h4 class="mb-3">Compra Cliente</h4>
+              <div class="col">
+                <form id="myForm"><p id="log"></p>
+                <!-- <form class="needs-validation" id="myForm" onsubmit="myFunction()"> -->
+                  <div class="row g-3">
+                    <!-- <div class="col-sm-4">
+                       <select class="form-select" id="idProducto" name="producto" value="idProducto" required="">
+                        <option >Seleccione una producto...</option>
+                      </select>
+                    </div> -->
+                    <div class="col-sm-4">
+                      <input type="text" class="form-control" id="codigoProductoClient" placeholder="Codigo Producto" required="">
+                    </div>
+                      
+                    <div class="col-sm-4">
+                      <input type="text" class="form-control" id="descripcionClient" placeholder="Descripcion" value="" required="">
+                    </div>
+                    <div class="col-sm-4">
+                      <input type="text" class="form-control" id="cantidadClient" placeholder="Cantidad" value="" required="">
+                    </div>
+                  </div>
+                  <hr class="my-4">
+                  <!-- <button class="w-100 btn btn-primary btn-lg" type="submit">Agregar Producto</button> -->
+                  <button class="w-100 btn btn-primary btn-lg" onClick="addSale()">Agregar Venta</button>
+                </form>
+              </div>
+            </div>
+          </div>
+  
+            <!-- SCRIPTS -->
+            <script>
+              
+            productoList = [
+                {producto: "Cocacola", codigo: 1, cantidad_disponible: 12 },
+                {producto: "Pepsi", codigo: 2, cantidad_disponible: 20 },
+                {producto: "Galletas", codigo: 3,  cantidad_disponible: 50 },
+                {producto: "Pepsi",codigo: 2, cantidad_disponible: 20 },
+                {producto:"JugoHit_naranja_pina", codigo: 1, cantidad_disponible: 12 },
+            ];
+            function addProduct() {
+                  var nameProduct = document.getElementById("nameProduct").value;
+                  // alert('nameProduct:' + nameProduct);
+                  var codeProduct = document.getElementById("codeProduct").value;
+                  // alert('codigoProducto:' + codeProduct);
+                  var descriptionProduct = document.getElementById("descriptionProduct").value;
+                  // alert('descriptionProduct:' + descriptionProduct);
+                  var amountProduct = document.getElementById("amountProduct").value;//cantidad_diponible
+                  // alert('amountProduct:' + amountProduct);
+                  // var producto = new Producto();
+                  // producto.agregarProducto(nameProduct, codeProduct, descriptionProduct,amountProduct);
+                  agregarProducto(nameProduct, codeProduct, descriptionProduct,amountProduct)
+            }
+            function agregarProducto(nameProduct, codeProduct, descriptionProduct,amountProduct) {
+              productoList.push({producto: nameProduct, codigo: codeProduct, descripcion: descriptionProduct, cantidad_diponible: descriptionProduct});
+              for (let i = 0; i < productoList.length; i++) {
+                  console.log(productoList[i]);
+                  // alert(productoList[i].value);
+              }
+              alert("")
+            }
+            // function addSale() {
+            //       var codeProductClient = document.getElementById("codigoProductoClient").value;
+            //       var descriptionClient = document.getElementById("descripcionClient");
+            //       var amountClient = document.getElementById("amountClient");
+            //       var productClient = new Producto()
+            // }
+            </script>
+
+            <script src="./producto.js"></script>
+    </body>
+</body>
+</html>

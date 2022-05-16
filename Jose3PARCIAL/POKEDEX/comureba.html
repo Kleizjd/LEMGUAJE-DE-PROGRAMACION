@@ -1,0 +1,23 @@
+<style>
+     img{
+    padding: 10px;
+    width: 100px;
+  }
+</style>
+<script>
+    function cargarImagenes(){
+    var img1 = document.getElementById('imagen1');
+    img1.onerror = cargarImagenPorDefecto;
+    var img2 = document.getElementById('imagen2');
+    img2.onerror = cargarImagenPorDefecto;
+  }
+  
+  function cargarImagenPorDefecto(e){
+    e.target.src= './IMAGENES/quien.png';
+  }
+  cargarImagenes();
+ 
+</script>
+  <img src="https://icon-icons.com/icons2/458/PNG/128/Shy-Minion-icon_43752.png" id="imagen1" />
+  <img src="https://imagen-noexiste.com/noimage.png" id="imagen2" />
+  <img src="algo.jpg" onerror="this.src='./IMAGENES/quien.png'" />

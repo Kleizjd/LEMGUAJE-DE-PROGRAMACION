@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="js/index.js"> </script>
+    <title>Mi primer Hola</title>
+</head>
+<body>
+    <div class="container py-2">
+        <p class="lead">Pregunta 1: Ingrese usuario y contraseña</p>
+        <form>
+        <input id="usuario" type="int" placeholder="Ingrese usuario" class="form-control my-2">
+        <input id="contrasena" type="text" placeholder="Ingrese contraseña" class="form-control my-2">
+        <button id="boton" clas="btn btn-success" type="reset" onclick="capturar();"> Agregar </button>
+        </form>
+        
+    </div>
+    <br/>
+    <div class="container py-2">
+        <p class="lead">Pregunta 2: Numeros aleaotorios </p>
+        <form>
+        <input id="numero" type="int" placeholder="Ingrese numero entre 1 y 1000" class="form-control my-2">
+        <button id="boton" clas="btn btn-success" type="reset" onclick="numeros();"> Agregar </button>
+        </form>
+
+        <br>
+        <p id="numeroPrimo"> </p>
+        <br>
+        <p id="numeroPar"> </p>
+        <br>
+        <p id="numeroImpar"> </p>
+        <br>
+        <p id="numeroMaximo"> </p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<pre id="lunes"></pre>
+<!-- <br> -->
+<pre id="martes"></pre>
+<!-- <br> -->
+<pre id="miercoles"></pre>
+<!-- <br> -->
+<pre id="jueves"></pre>
+<!-- <br> -->
+<pre id="viernes"></pre>
+<!-- <br> -->
+
+</pre>
+<script>
+    var horario = [{
+        lunes: [],
+        martes: ["MARTES", "", "", "", ""],
+        miercoles: ["MIERCOLES", "", "", "", ""],
+        jueves: ["JUEVES", "", "", "", ""],
+        viernes: ["VIERNES", "", "", "", ""]
+    }]
+    // var mensajes = []; //arreglo que tendrá los mensajes recorridos
+    
+    horario.forEach((item) => { //Recorro primer arreglo
+        var mensajesDom = document.getElementById('lunes');
+        mensajesDom.innerHTML += "LUNES|";
+        item.lunes.forEach((mensaje, index) => {
+            // Imprimo todos los mensajes en el html
+            // if (mensaje === "") {
+                var materia = prompt("ingrese asignatura N:" + index)
+                item.lunes.push(materia);
+                mensajesDom.innerHTML += materia + "|";
+            // } 
+        });
+        console.log(horario);
+
+        // item.lunes.forEach((mensaje, index) => {
+        //     // Imprimo todos los mensajes en el html
+        //         console.log(mensaje);
+
+        // });
+        // var mensajesDom = document.getElementById('martes');
+        // item.martes.forEach((mensaje, index) => {  
+        //     mensajesDom.innerHTML += "MARTES|";
+        //     if (mensaje === "") {
+        //         var materia = prompt("ingrese asignatura N:" + index)
+        //         horario.push(materia);
+        //         mensajesDom.innerHTML += materia + "|";
+        //     } 
+        // });
+        // var mensajesDom = document.getElementById('martes');
+        // item.martes.forEach((mensaje, index) => {   
+        //     // Imprimo todos los mensajes en el html
+        //     if (mensaje === "") {
+        //         materia = mensajes.push(prompt("ingrese asignatura N:" + index));
+        //         mensajesDom.innerHTML += materia + "|";
+        //     } else {
+        //         alert("("+mensaje+")");
+        //         mensajesDom.innerHTML += mensaje + "|";
+        //     }
+        // });
+        
+        // var mensajesDom = document.getElementById('miercoles');
+        // item.miercoles.forEach((mensaje, index) => {   
+        //     // Imprimo todos los mensajes en el html
+        //     if (mensaje === "") {
+        //         materia = mensajes.push(prompt("ingrese asignatura N:" + index));
+        //         mensajesDom.innerHTML += materia + "|";
+        //     } else {
+        //         alert("("+mensaje+")");
+        //         mensajesDom.innerHTML += mensaje + "|";
+        //     }
+        // });
+        
+        // var mensajesDom = document.getElementById('jueves');
+        // item.jueves.forEach((mensaje, index) => {   
+        //     // Imprimo todos los mensajes en el html
+        //     if (mensaje === "") {
+        //         materia = mensajes.push(prompt("ingrese asignatura N:" + index));
+        //         mensajesDom.innerHTML += materia + "|";
+        //     } else {
+        //         alert("("+mensaje+")");
+        //         mensajesDom.innerHTML += mensaje + "|";
+        //     }
+        // });
+        // var mensajesDom = document.getElementById('viernes');
+        // item.viernes.forEach((mensaje, index) => {   
+        //     // Imprimo todos los mensajes en el html
+        //     if (mensaje === "") {
+        //         materia = mensajes.push(prompt("ingrese asignatura N:" + index));
+        //         mensajesDom.innerHTML += materia + "|";
+        //     } else {
+        //         alert("("+mensaje+")");
+        //         mensajesDom.innerHTML += mensaje + "|";
+        //     }
+        // });
+    });
+</script>

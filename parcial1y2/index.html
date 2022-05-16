@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="user" placeholder="Usuario">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="password" placeholder="Contraseña">
+            </div>
+        </div>
+        <button class="w-100 btn btn-primary btn-lg" type="button" onClick="comprobar()">Iniciar sesion</button>
+        <div class="row">
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="numeros" placeholder="numero">
+                <label for="" id="settext"></label>
+            </div>
+        </div>
+        <button class="w-100 btn btn-primary btn-lg" type="button" onClick="numero()">Agregar numero</button>
+        <p id="primo"> </p>
+        <br>
+        <p id="par"> </p>
+        <p id="impar"> </p>
+        <p id="|"> </p>
+        <br>
+        <p id="maximo"> </p>
+    </div>
+</body>
+
+</html>
+<script>
+    function numero() {
+        var numero = document.getElementById("numeros").value;
+        var arrOne = [];
+        var conca = '';
+        max = 10;
+        min = 1;
+        for (var i = 0; i < numero; i++) {
+            concatena = '' + (Math.floor(Math.random() * (max - min)) + min);
+            conca += '' + concatena;
+
+            arrOne.push(concatena);
+        }
+        document.getElementById("settext").innerHTML = conca;
+        arrOne.map((ele) => {
+                    if (esPrimo(ele)) {
+                        console.log("primo " + ele);
+                        document.getElementById("primo").innerHTML += 'es primo ' + ele + '\n';
+                    }
+
+                    if (par(ele)) {
+                        console.log("par " + ele);
+                        document.getElementById("par").innerHTML += 'es par ' + ele + '\n';
+                    }
+
+                    else {
+                        console.log("impar " + ele);
+                        document.getElementById("impar").innerHTML += 'es impar ' + ele + '\n';
+                    }
+                })
+    }
+    function esPrimo(numero) {
+            if (numero == 0 || numero == 1 || numero == 4) return false;
+            for (let x = 2; x < numero / 2; x++) {
+                if (numero % x == 0) return false;
+            }
+            return true;
+        }
+
+        function par(numero) {
+            if (parseInt(numero) % 2 == 0){
+                return true;
+        }else{
+                return false;
+        }
+    }
+    function comprobar() {
+        var users = []
+        users = [{ user: 'Damian', pass: '123damian' }, { user: 'Marina', pass: 'Mari321' }, { user: 'Juan', pass: '123456J' }, { user: 'Jose', pass: 'J0s3' }]
+        var user = document.getElementById("user").value;
+        var password = document.getElementById("password").value;
+        var valida = false
+        console.log("pr", password);
+        for (let i = 0; i < users.length; i++) {
+            const element = users[i].pass;
+
+            if (password === users[i].pass || user === users[i].user) {
+                valida = true;
+                break;
+            }
+        }
+        if (valida == true) {
+            alert("password exitosa");
+        } else {
+            alert("password incorrecta");
+        }
+    }
+
+</script>

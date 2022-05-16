@@ -1,0 +1,152 @@
+<pre id="dias"></pre>
+<input type="button" value="Dia con mas clases" onclick="diaMaxClases()">
+<input type="button" value="" onclick="diaClasesTemprano()">
+</pre>
+<script>
+    var horario = [{
+        lunes: [],
+        martes: [],
+        miercoles: [],
+        jueves: [],
+        viernes: []
+    }]
+    // var mensajes = []; //arreglo que tendrá los mensajes recorridos
+    // var diaClasesTemprano = [{lunes:[], martes:[], miercoles: [],jueves: [],viernes: []}];
+    var cant = 0;
+    // var diaClasesTemprano = [];
+    var mensajesDom = document.getElementById('dias');
+    mensajesDom.innerHTML += "LUNES||";
+    horario.map((item) => {
+
+        cant = prompt("Cantidad de Materias")
+        // var cant = prompt("Cantidad de materias dia Lunes")
+        var i = 0;
+        while (i < cant) {
+            let materia = prompt("LUNES|| ingrese asignatura N:" + i)
+            item.lunes.push(materia);
+            mensajesDom.innerHTML += materia + "|";
+
+            i++;
+        }
+        var i = 0;
+        mensajesDom.innerHTML += "\nMartes||";
+        while (i < cant) {
+            let materia = prompt("iMartes|| ngrese asignatura N:" + i)
+            item.martes.push(materia);
+            mensajesDom.innerHTML += materia + "|";
+            i++;
+        }
+
+        var i = 0;
+        mensajesDom.innerHTML += "\nMiercoles||";
+        while (i < cant) {
+            let materia = prompt("Miercoles|| ingrese asignatura N:" + i)
+            item.miercoles.push(materia);
+            mensajesDom.innerHTML += materia + "|";
+            i++;
+        }
+
+        var i = 0;
+        mensajesDom.innerHTML += "\nJueves||";
+        while (i < cant) {
+            let materia = prompt("nueves|| ingrese asignatura N:" + i)
+            item.jueves.push(materia);
+            mensajesDom.innerHTML += materia + "|";
+            i++;
+        }
+
+        var i = 0;
+        mensajesDom.innerHTML += "\nViernes||";
+        while (i < cant) {
+            let materia = prompt("Viernes|| ingrese asignatura N:" + i)
+            item.viernes.push(materia);
+            mensajesDom.innerHTML += materia + "|";
+            i++;
+        }
+    });
+    console.log(horario);
+
+    function diaClasesTemprano() {
+        // var medioTiempo = cant / 2;
+        for (let i = 0; i < horario.length; i++) {
+            // horas = horario[0].lunes;
+
+            var lunesPrimera = horario[0].lunes[0], martesPrimera = horario[0].martes[0], miercolesPrimera = horario[0].miercoles[0], juevesPrimera = horario[0].jueves[0], viernesPrimera = horario[0].viernes[0];
+            if (lunesPrimera > martes && lunesPrimera > miercoles && lunesPrimera > jueves && lunesPrimera > viernes) {
+                alert('El dia con mas clases es el Lunes')
+            } else if (martes > lunesPrimera && martesPrimera > miercoles && martesPrimera > jueves && martesPrimera > viernes) {
+                alert('El dia con mas clases es el MartesPrimera')
+            } else if (miercoles > lunesPrimera && miercoles > martesPrimera && miercoles > jueves && miercoles > viernes) {
+                alert('El dia con mas clases es el Miercoles')
+            } else if (jueves > lunesPrimera && jueves > martesPrimera && jueves > miercoles && jueves > viernes) {
+                alert('El dia con mas clases es el Jueves')
+            } else if (viernes > lunesPrimera && viernes > martesPrimera && viernes > miercoles && viernes > jueves) {
+                alert('El dia con mas clases es el Viernes')
+            } else {
+                alert('No hay dia con mayor numero de clases, o hay dos o mas con la misma cantidad ')
+            }
+            // if()
+            // console.log("horas "+ lunesPrimera)
+            // console.log("horas martesPrimera"+ martesPrimera)
+            // for (let j = 0; j < array.length; j++) {
+
+            // }
+
+        }
+        // horario.forEach(item=>{ 
+        //     item.lunes.forEach(horas=>{
+
+        //     })
+        // })
+
+        // if(item.lunes){
+
+        // }
+
+        // if(lunes > martes && lunes > miercoles && lunes > jueves && lunes > viernes){
+        //     alert('El dia de clases mas temprano es el Lunes')
+        // } else if(martes > lunes && martes > miercoles && martes > jueves && martes > viernes){
+        //     alert('El dia de clases mas temprano es el Martes')
+        // } else if(miercoles > lunes && miercoles > martes && miercoles > jueves && miercoles > viernes){
+        //     alert('El dia de clases mas temprano es el Miercoles')
+        // } else if(jueves > lunes && jueves > martes && jueves > miercoles && jueves > viernes){
+        //     alert('El dia de clases mas temprano es el Jueves')
+        // } else if(viernes > lunes && viernes > martes && viernes > miercoles && viernes > jueves){
+        //     alert('El dia de clases mas temprano es el Viernes')
+        // } else {
+        //     alert('No hay dia de clases mas temprano, o hay dos o mas con la misma a ala misma hora ')
+        // }
+
+
+    }
+    function diaMaxClases() {
+        horario.map((item) => {
+            var lunes = 0;
+            item.lunes.forEach((elemento) => { if (elemento != '') { lunes++; } });
+            var martes = 0;
+            item.martes.forEach((elemento) => { if (elemento != '') { martes++; } });
+            var miercoles = 0;
+            item.miercoles.forEach((elemento) => { if (elemento != '') { miercoles++; } });
+            var jueves = 0;
+            item.jueves.forEach((elemento) => { if (elemento != '') { jueves++; } });
+            var viernes = 0;
+            item.viernes.forEach((elemento) => { if (elemento != '') { viernes++; } });
+
+            if (lunes > martes && lunes > miercoles && lunes > jueves && lunes > viernes) {
+                alert('El dia con mas clases es el Lunes')
+            } else if (martes > lunes && martes > miercoles && martes > jueves && martes > viernes) {
+                alert('El dia con mas clases es el Martes')
+            } else if (miercoles > lunes && miercoles > martes && miercoles > jueves && miercoles > viernes) {
+                alert('El dia con mas clases es el Miercoles')
+            } else if (jueves > lunes && jueves > martes && jueves > miercoles && jueves > viernes) {
+                alert('El dia con mas clases es el Jueves')
+            } else if (viernes > lunes && viernes > martes && viernes > miercoles && viernes > jueves) {
+                alert('El dia con mas clases es el Viernes')
+            } else {
+                alert('No hay dia con mayor numero de clases, o hay dos o mas con la misma cantidad ')
+            }
+            console.log(viernes);
+        });
+    }
+
+</script>

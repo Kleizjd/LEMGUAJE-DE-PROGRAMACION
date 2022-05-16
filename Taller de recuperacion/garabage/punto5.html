@@ -1,0 +1,77 @@
+<pre id="lunes"></pre>
+<pre id="martes"></pre>
+<pre id="miercoles"></pre>
+<pre id="jueves"></pre>
+<pre id="viernes"></pre>
+
+</pre>
+<script>
+    var horario = [{
+        lunes: ["LUNES", "", "", "", ""],
+        martes: ["MARTES", "", "", "", ""],
+        miercoles: ["MIERCOLES", "", "", "", ""],
+        jueves: ["JUEVES", "", "", "", ""],
+        viernes: ["VIERNES", "", "", "", ""]
+    }]
+    var mensajes = []; //arreglo que tendrá los mensajes recorridos
+
+    horario.forEach((item) => { //Recorro primer arreglo
+        var mensajesDom = document.getElementById('lunes');
+        item.lunes.forEach((mensaje, index) => {
+            // Imprimo todos los mensajes en el html
+            if (mensaje === "") {
+                materia = mensajes.push(prompt("ingrese asignatura N:" + index));
+                mensajesDom.innerHTML += materia + "|";
+            } else {
+                alert("("+mensaje+")");
+                mensajesDom.innerHTML += mensaje + "|";
+            }
+        });
+        var mensajesDom = document.getElementById('martes');
+        item.martes.forEach((mensaje, index) => {   
+            // Imprimo todos los mensajes en el html
+            if (mensaje === "") {
+                materia = mensajes.push(prompt("ingrese asignatura N:" + index));
+                mensajesDom.innerHTML += materia + "|";
+            } else {
+                alert("("+mensaje+")");
+                mensajesDom.innerHTML += mensaje + "|";
+            }
+        });
+        
+        var mensajesDom = document.getElementById('miercoles');
+        item.miercoles.forEach((mensaje, index) => {   
+            // Imprimo todos los mensajes en el html
+            if (mensaje === "") {
+                materia = mensajes.push(prompt("ingrese asignatura N:" + index));
+                mensajesDom.innerHTML += materia + "|";
+            } else {
+                alert("("+mensaje+")");
+                mensajesDom.innerHTML += mensaje + "|";
+            }
+        });
+        
+        var mensajesDom = document.getElementById('jueves');
+        item.jueves.forEach((mensaje, index) => {   
+            // Imprimo todos los mensajes en el html
+            if (mensaje === "") {
+                materia = mensajes.push(prompt("ingrese asignatura N:" + index));
+                mensajesDom.innerHTML += materia + "|";
+            } else {
+                alert("("+mensaje+")");
+                mensajesDom.innerHTML += mensaje + "|";
+            }
+        });
+        var mensajesDom = document.getElementById('viernes');
+        item.viernes.forEach((mensaje, index) => {   
+            // Imprimo todos los mensajes en el html
+            if (mensaje === "") {
+                materia = mensajes.push(prompt("ingrese asignatura N:" + index));
+                mensajesDom.innerHTML += materia + "|";
+            } else {
+                alert("("+mensaje+")");
+                mensajesDom.innerHTML += mensaje + "|";
+            }
+        });
+    });
+</script>

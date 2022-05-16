@@ -1,0 +1,233 @@
+<!-- mostrar lista con los pokemones registradas -->
+<!-- mostrar estadisticas de pokemones -->
+<!-- crear pokemones -->
+<!-- buscar pokemones -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>POKEMON</title>
+    <script src="https://kit.fontawesome.com/0c1d2c3fb6.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-dark bg-danger">
+            <!-- Navbar content -->
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">POKEMON</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <form class="d-flex" role="search">
+            <input class="form-control me-2" id="buscarPokemones" placeholder="Buscar por nombre">
+            <button class="btn btn-light" type="button" onClick="buscarPokemon()">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+            <!-- Abre Modal -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Crear
+                pokemon</button>
+        </form>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="row border">
+
+                        <div class="col">
+                            <div class="row">
+                                <div class="col">
+                                    <label for="filtrar pokemones por">
+                                        filtrar pokemones por
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="row">
+                                        <div class="col">
+                                            <label class="form-check-label" for="fuego">fuego</label>
+                                            <input type="radio" name="elementos" id="">
+                                            <label class="form-check-label" for="agua">agua</label>
+                                            <input type="radio" name="elementos" id="">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <label class="form-check-label" for="aire">aire</label>
+                                            <input type="radio" name="elementos" id="">
+                                            <label class="form-check-label" for="veneno">veneno</label>
+                                            <input type="radio" name="elementos" id="">
+                                            <label class="form-check-label" for="electrico">electrico</label>
+                                            <input type="radio" name="elementos" id="">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row border">
+                        <div class="col">
+                            <div class="row">
+                                <div class="col">
+                                    <label for="Lista de pokemons">Lista de pokemons</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div id="pokemons">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div id="pokemon">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+            style="display: none;" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Pokemon</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Nombre:</label>
+                        <input type="text" class="form-control" id="nombre">
+                    </div>
+                    <select class="form-select" aria-label="Default select example" id="tipo">
+                        <option selected>Tipo</option>
+                        <option value="Agua">Agua</option>
+                        <option value="Fuego">Fuego</option>
+                        <option value="Electro">Electro</option>
+                        <option value="Veneno">Veneno</option>
+                        <option value="Veneno">Aire</option>
+                    </select>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="message-text" class="col-form-label">Descripcion:</label>
+                                <textarea class="form-control" id="descripcion"></textarea>
+                                <div class="row">
+                                    <div class="col-2">
+                                        <label for="message-text" class="col-form-label">Ataque:</label>
+                                        <input type="text" class="form-control" id="ataque">
+                                    </div>
+                                    <div class="col-2">
+                                        <label for="message-text" class="col-form-label">Defensa:</label>
+                                        <input type="text" class="form-control" id="defensa">
+                                    </div>
+                                    <div class="col-2">
+                                        <label for="message-text" class="col-form-label">Velocidad:</label>
+                                        <input type="text" class="form-control" id="velocidad">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button class="btn btn-primary" onclick="crearPokemon()">Guardar Pokemon</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let pokemonList = [], cont, info;
+        pokemonList = [{ nombre: "charizard", tipo: "fuego", imagen: "./IMAGENES/charizard.png", descripcion: "es volador y echa fuego", ataque: "80%", defensa: "50%", velocidad: "70%", evolucion: ""},
+        { nombre: "venusaur", tipo: "fuego", imagen: "./IMAGENES/venusaur.png", descripcion: "es volador y echa fuego", ataque: "80%", defensa: "50%", velocidad: "70%" }, { nombre: "pidgey", tipo: "fuego", imagen: "./IMAGENES/ninetales.png", descripcion: "es volador y echa fuego", ataque: "80%", defensa: "50%", velocidad: "70%" }];
+        function crearPokemon() {
+            var nombre = document.getElementById("nombre").value;
+            var tipo = document.getElementById("tipo").value;
+            var descripcion = document.getElementById("descripcion").value;
+            var imagen = "./IMAGENES/" + nombre + ".png";
+            var evolucion = "./IMAGENES/evoluciones/" + nombre + ".png";
+            // var crearPokemon = ;
+
+            var ataque = document.getElementById("ataque").value;
+            var defensa = document.getElementById("defensa").value;
+            var velocidad = document.getElementById("velocidad").value;
+            pokemonList.push({ nombre, tipo, imagen, descripcion, ataque, defensa, velocidad, velocidad, evolucion});
+
+            console.log(pokemonList)
+            actualizaLista()
+        }
+        function buscarPokemon() {
+            console.log(pokemonList)
+            var buscarPokemon = document.getElementById("buscarPokemones").value;
+            var pokemonElegido = document.getElementById('pokemon');
+            var info = "";
+            pokemonList.forEach((pokemon, index) => {
+
+                if (pokemon.nombre === buscarPokemon || index === parseInt(buscarPokemon) || pokemon.tipo === buscarPokemon) {
+                    info = '<div class="row">';
+                    info += '<div class="col">';
+                    info += '<div class="card" style="width: 18rem;">';
+                    info += '<img src="' + pokemon.imagen + '" class="card-img-top" alt="...">';
+                    info += '<div class="card-body">';
+                    info += '<h5 class="card-title">' + pokemon.nombre + "</h5>";
+                    info += '<p class="card-text"><b>Tipo:</b> ' + pokemon.tipo + '</p>';
+
+                    info += '<div class="row">';
+                    info += '<div class="col">';
+                    info += '<b class="card-text">Estadisticas</b>';
+                    info += '<p class="card-text"><b>Ataque:</b> ' + pokemon.ataque + '</p>';
+                    info += '<p class="card-text"><b>Defensa:</b>' + pokemon.defensa + '</p>';
+                    info += '<p class="card-text"><b>Velocidad:</b>' + pokemon.velocidad + '</p>';
+
+                    info += '</div>';
+                    info += '<div class="col">';
+                        info += '<img src="' + pokemon.evolucion + '" class="card-img-top" alt="...">';
+                    info += '</div>';
+                    info += '</div>';
+                    info += '</div>';
+                    info += '</div>';
+                    info += '</div>';
+                    info += '</div>';
+                }
+            });
+
+            pokemonElegido.innerHTML = info;
+
+        }
+        function actualizaLista() {
+            info = "<ul class='ul'>";
+            for (let i = 0; i < pokemonList.length; i++) {
+                info += "<li>";
+                info += "<a href'" + pokemonList[i] + "'>" + "<img src='" + pokemonList[i].imagen + "'>" + "</a>" + "</li>";
+                console.log(pokemonList[i]);
+            }
+            info += "</ul>";
+            pokemons.innerHTML = info;
+        }
+        info = "<ul class='ul'>";
+        for (let i = 0; i < pokemonList.length; i++) {
+            info += "<li>";
+            info += "<a href'" + pokemonList[i] + "'>" + "<img src='" + pokemonList[i].imagen + "'>" + "</a>" + "</li>";
+            console.log(pokemonList[i]);
+        }
+        info += "</ul>";
+        pokemons.innerHTML = info;
+
+    </script>
+    <!-- <script src="./js/POKEMON.js"></script> -->
+
+</body>
+
+
+</html>

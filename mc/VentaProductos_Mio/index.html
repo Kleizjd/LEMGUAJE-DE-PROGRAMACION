@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="js/index.js"> </script>
+    <title>Venta de products</title>
+</head>
+<body style="background-color: aliceblue">
+	<div class="w3-container w3-red w3-cell">
+		<div class="w3-container w3-aliceblue w3-cell">
+			<div class="w3-panel w3-blue w3-round-xlarge" >
+				<div class="container py-2">
+					<p class="lead"> Ingrese Productos</p>
+					<form>
+					<input id="codigo" type="int" placeholder="Ingrese Código" class="form-control my-2">
+					<input id="producto" type="text" placeholder="Nombre del Producto" class="form-control my-2">
+					<input id="cantidad" type="int" placeholder="Cantidad" class="form-control my-2">
+					<button id="boton" clas="btn btn-success" type="reset" onclick="capturar();"> Agregar </button>
+					</form>
+				</div>
+				<div class="container">
+					<table class="w3-table w3-striped w3-border" id="Existencias">
+						<thead class="thead-inverse">
+							<tr>
+								<th>Código</th>
+								<th>Producto</th>
+								<th>Cantidad</th>
+							</tr>
+						</thead>
+						<tbody id="tbodyExistencias">
+					</table>
+				</div>
+				<div class="container py-2">
+					<p class="lead"> Seleccione Productos para la venta</p>
+					<form>
+					<input id="codigo1" type="int" placeholder="Ingrese Código" class="form-control my-2">
+					<input id="cantidad1" type="int" placeholder="Cantidad" class="form-control my-2">
+					<button id="boton" clas="btn btn-success" type="reset" onclick="capturarVenta();"> Agregar Venta </button>
+					<button id="boton" clas="btn btn-success" type="reset" onclick="vaciarArreglo();"> Finalizar Venta </button>
+					<button id="boton" clas="btn btn-success" type="reset" onclick="imprimirArray();"> imprimirArray</button>
+					</form>
+				</div>
+				<div class="container">
+					<table class="w3-table w3-striped w3-border" id="tabla1">
+						<thead class="thead-inverse">
+							<tr>
+								<th>Código</th>
+								<th>Producto</th>
+								<th>Cantidad</th>
+							</tr>
+						</thead>
+						<tbody id="tbodyTabla1">
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

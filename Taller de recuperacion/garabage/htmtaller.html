@@ -1,0 +1,143 @@
+<!-- <pre id="dias">
+<pre id="lunes">
+<pre id="martes">
+<pre id="miercoles">
+<pre id="jueves">
+<pre id="viernes"> -->
+<div class="container">
+    <table class="w3-table w3-striped w3-border" id="tabla1">
+        <thead class="thead-inverse">
+            <tr>
+                <!-- <th>HORAS</th> -->
+                <th>LUNES</th>
+                <th>MARTES</th>
+                <th>MIERCOLES</th>
+                <th>JUEVES</th>
+                <th>VIERNES</th>
+            </tr>
+        </thead>
+        <tbody id="tbodyHorario">
+            <tr>
+                <td><input type="text" name="" id=""></td>
+                <td><input type="text" name="" id=""></td>
+                <td><input type="text" name="" id=""></td>
+                <td><input type="text" name="" id=""></td>
+                <td><input type="text" name="" id=""></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="" id=""></td>
+                <td><input type="text" name="" id=""></td>
+                <td><input type="text" name="" id=""></td>
+                <td><input type="text" name="" id=""></td>
+                <td><input type="text" name="" id=""></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="" id=""></td>
+                <td><input type="text" name="" id=""></td>
+                <td><input type="text" name="" id=""></td>
+                <td><input type="text" name="" id=""></td>
+                <td><input type="text" name="" id=""></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="" id=""></td>
+                <td><input type="text" name="" id=""></td>
+                <td><input type="text" name="" id=""></td>
+                <td><input type="text" name="" id=""></td>
+                <td><input type="text" name="" id=""></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="" id=""></td>
+                <td><input type="text" name="" id=""></td>
+                <td><input type="text" name="" id=""></td>
+                <td><input type="text" name="" id=""></td>
+                <td><input type="text" name="" id=""></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+</pre>
+<script>
+
+
+    var horario = [{
+        dias: ["LUNES", "MARTES", "MIERCOLES", "JUEVES", "VIERNES"],
+        lunes: ["", "", "", "", ""],
+        martes: ["", "", "", "", ""],
+        miercoles: ["", "", "", "", ""],
+        jueves: ["", "", "", "", ""],
+        viernes: ["", "", "", "", ""]
+    }]
+
+    var mensajes = []; //arreglo que tendrá los mensajes recorridos
+
+    horario.forEach((item) => { //Recorro primer arreglo
+        // //Luego recorro la propiedad mensajes dentro del arreglo
+        // item.DIAS.forEach((mensaje) => {
+        //     // Obtengo cada mensaje de la propiedad y la guardo en mi arreglo de mensajes
+        //     mensajes.push(mensaje);
+        // });
+        var mensajesDom = document.getElementById('dias');
+        item.dias.forEach((mensaje) => {
+            // Imprimo todos los mensajes en el html
+            mensajesDom.innerHTML += mensaje + "|";
+        });
+        mensajesDom.innerHTML += "\n-------------------------------------";
+
+        // item.dias.forEach((mensaje) => {
+        //     mensajes.push(mensaje);
+        // });
+        var mensajesDom = document.getElementById('lunes');
+        item.lunes.forEach((mensaje, index) => {
+            if (mensaje === "") {
+                mensajes.push(prompt("ingrese una asignatura " + index))
+                mensajesDom.innerHTML += mensaje + "|";
+            }
+        });
+        // item.martes.forEach((mensaje) => {
+        //     mensajes.push(mensaje);
+        // });
+        // item.miercoles.forEach((mensaje) => {
+        //     mensajes.push(mensaje);
+        // });
+        // item.jueves.forEach((mensaje) => {
+        //     mensajes.push(mensaje);
+        // });
+        // item.viernes.forEach((mensaje) => {
+        //     mensajes.push(mensaje);
+        // });
+    });
+
+    // Imprimo todos los mensajes en el html
+    // var mensajesDom = document.getElementById('mensajes');
+    // mensajesDom.innerHTML = mensajes;
+</script>
+
+
+
+
+i = 0;
+while(i<medioTiempo){
+    item.lunes.forEach((elemento) => { if(elemento != ''){lunes++;} });
+    item.martes.forEach((elemento) => { if(elemento != ''){martes++;} });
+    item.miercoles.forEach((elemento) => { if(elemento != ''){miercoles++;} });
+    item.jueves.forEach((elemento) => { if(elemento != ''){jueves++;} });
+    item.viernes.forEach((elemento) => { if(elemento != ''){viernes++;} });
+    i++;
+}
+if(lunes > martes && lunes > miercoles && lunes > jueves && lunes > viernes){
+    alert('El dia de clases mas temprano es el Lunes')
+} else if(martes > lunes && martes > miercoles && martes > jueves && martes > viernes){
+    alert('El dia de clases mas temprano es el Martes')
+} else if(miercoles > lunes && miercoles > martes && miercoles > jueves && miercoles > viernes){
+    alert('El dia de clases mas temprano es el Miercoles')
+} else if(jueves > lunes && jueves > martes && jueves > miercoles && jueves > viernes){
+    alert('El dia de clases mas temprano es el Jueves')
+} else if(viernes > lunes && viernes > martes && viernes > miercoles && viernes > jueves){
+    alert('El dia de clases mas temprano es el Viernes')
+} else {
+    alert('No hay dia con mayor numero de clases, o hay dos o mas con la misma cantidad ')
+}
+
+});
